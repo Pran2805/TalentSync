@@ -5,7 +5,8 @@
   "main": "index.js",
    "scripts": {
     "build": "npm install --prefix backend --include=dev && npm install --include=dev --prefix frontend && npm run build --prefix frontend && npx prisma generate --schema=backend/prisma/schema.prisma && npm run build --prefix backend",
-    "start": "npm run start --prefix backend"
+    "start": "npm run start --prefix backend",
+    "check": "npm run build && npm run start"
   },
   "repository": {
     "type": "git",
