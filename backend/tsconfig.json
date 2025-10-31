@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    /* === File Layout === */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* === Language / Module System === */
+    "target": "ES2022",                  // Modern JS output
+    "module": "commonjs",                // Enables proper ESM support
+    "moduleResolution": "node",      // Required for Node ESM
+    "lib": ["ES2022", "DOM"],            // DOM needed for React
+    "types": ["node"],                   // Enable NodeJS type definitions
+
+    /* === Emit Options === */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* === Strictness / Safety === */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true,
+
+    /* === Module Behavior === */
+    "verbatimModuleSyntax": false,       // Avoid forcing .ts/.js extensions
+    "isolatedModules": true,
+    "moduleDetection": "force",
+
+    /* === React JSX Support === */
+    "jsx": "react-jsx",
+
+    /* === Lint-like Options (Optional, uncomment if you want stricter checks) === */
+    // "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noImplicitOverride": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
