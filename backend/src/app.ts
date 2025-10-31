@@ -4,7 +4,7 @@ import helmet from 'helmet'
 import cors from 'cors'
 import { ENV } from "./util/env"
 import {serve} from 'inngest/express'
-import { inngest } from "./webhook/inngest"
+import { inngest, functions } from "./webhook/inngest"
 const app = express()
 
 
@@ -20,7 +20,7 @@ app.use(cookieParser())
 app.use(helmet())
 app.use("/api/v1/inngest", serve({
     client: inngest,
-    functions: [],
+    functions,
     signingKey: ENV.inngest_signin_key as string
 }))
 
