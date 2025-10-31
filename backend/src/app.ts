@@ -1,12 +1,26 @@
 import express from "express"
 import cookieParser from 'cookie-parser'
 import helmet from 'helmet'
-
+import cors from 'cors'
+import { ENV } from "./util/env"
+import {serve} from 'inngest/express'
+import { inngest } from "./webhook/inngest"
 const app = express()
 
-// injecting all the important middleware
+
+app.use(cors({
+    origin: ENV.client_url,
+    credentials: true,
+}))
+
 app.use(express.json())
 app.use(cookieParser())
+
+// todo: adjust the helmet middleware
 app.use(helmet())
+app.use("/api/inngest", serve({
+    client: inngest,
+    functions: []
+}))
 
 export default app;
