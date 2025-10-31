@@ -18,9 +18,10 @@ app.use(cookieParser())
 
 // todo: adjust the helmet middleware
 app.use(helmet())
-app.use("/api/inngest", serve({
+app.use("/api/v1/inngest", serve({
     client: inngest,
-    functions: []
+    functions: [],
+    signingKey: ENV.inngest_signin_key as string
 }))
 
 export default app;
