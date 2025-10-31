@@ -29,12 +29,14 @@
   "dependencies": {
     "@prisma/client": "^6.18.0",
     "@types/dotenv": "^6.1.1",
+    "ai-interview-platform": "file:..",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
-    "inngest": "^3.44.4"
+    "inngest": "^3.44.4",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
