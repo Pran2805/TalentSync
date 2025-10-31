@@ -1,0 +1,38 @@
+{
+  "name": "talent-sync",
+  "version": "1.0.0",
+  "description": "The AI platform where developers can practice",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github.com/pran2805.git"
+  },
+  "keywords": [
+    "TalentSync",
+    "Pranav",
+    "Shinde",
+    "Pran2805",
+    "Programmer",
+    "Developer"
+  ],
+  "author": "Pranav Shinde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/github.com/pran2805/issues"
+  },
+  "homepage": "https://github.com/github.com/pran2805#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
