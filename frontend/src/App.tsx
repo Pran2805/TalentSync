@@ -7,10 +7,9 @@ function App() {
         <Route
           path="/"
           element={
-            <div className="bg-black text-white">
+            <div className="bg-black text-white h-screen flex items-center justify-center">
               <SignedOut>
                 <SignIn />
-                hello
               </SignedOut>
 
               <SignedIn>
