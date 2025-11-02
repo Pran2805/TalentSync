@@ -1,25 +1,24 @@
-import { Routes, Route } from "react-router-dom";
-import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/clerk-react";
-
+import { Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ProblemPage from "./pages/ProblemPage";
+import { useUser } from "@clerk/clerk-react";
+import { Toaster } from "sonner"
+import { ThemeProvider } from "@/components/theme-provider"
+import Dashboard from "./pages/Dashboard";
 function App() {
-  return (
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="bg-black text-white h-screen flex items-center justify-center">
-              <SignedOut>
-                <SignIn />
-              </SignedOut>
+  const { isSignedIn, isLoaded } = useUser()
 
-              <SignedIn>
-                <h2>Welcome!</h2>
-                <UserButton />
-              </SignedIn>
-            </div>
-          }
-        />
+  if(!isLoaded) return null
+  return (
+    <ThemeProvider>
+      <Routes>
+        <Route path="/" element={isSignedIn ? <Navigate to="/dashboard" />:<HomePage />} />
+        <Route path="/problems" element={isSignedIn ? <ProblemPage /> : <Navigate to="/" />} />
+        <Route path="/dashboard" element={isSignedIn ? <Dashboard /> : <Navigate to="/" />} />
+        
       </Routes>
+      <Toaster duration={4000} position="top-right" />
+    </ThemeProvider>
   );
 }
 
