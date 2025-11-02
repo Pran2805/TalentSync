@@ -6,7 +6,7 @@ import ApiError from '../util/ApiError';
 import prisma from '../db/prisma';
 
 export const protectRoute = [
-    requireAuth(),
+    requireAuth({signInUrl: "/sign-in"}),
     asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
         try {
             const clerkId = (req as any).auth()?.userId;

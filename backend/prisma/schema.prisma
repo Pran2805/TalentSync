@@ -9,14 +9,42 @@ datasource db {
 }
 
 model User {
-  id     String @id @default(cuid())
-  name   String
-  email  String @unique
-  avatar String? @default("")
-  clerkId String @unique
+  id      String  @id @default(cuid())
+  name    String
+  email   String  @unique
+  avatar  String? @default("")
+  clerkId String  @unique
+
+  sessions Session[]
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Session   Session[] @relation("User")
+
+  @@map("users")
+}
+
+model Session {
+  id           String     @id @default(cuid())
+  problem      String
+  difficulty   Difficulty @default(MEDIUM)
+  hostId       String
+  host         User       @relation("User", fields: [hostId], references: [id])
+  participants User[]
+  status       Status     @default(active)
+  callId       String     @default("")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
 
-  @@map("users")
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum Status {
+  active
+  completed
 }

@@ -1,9 +1,9 @@
-import app from "./app";
+import {server} from "./app";
 import { ENV } from "./util/env";
 
 
 const port = ENV.port || 5000
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('Server is running on Port', port)
 })

@@ -10,17 +10,18 @@ import path from "path"
 import router from "./route/index"
 import { Server } from "socket.io"
 import { clerkMiddleware } from '@clerk/express'
+import { protectRoute } from './middleware/protectRoute'
 
 const app = express()
-// const server = createServer(app)
+const server = createServer(app)
 
-// const io = new Server(server, {
-//   cors: {
-//     origin: ENV.client_url,
-//     methods: ["GET", "POST"],
-//     credentials: true
-//   }
-// })
+const io = new Server(server, {
+  cors: {
+    origin: ENV.client_url,
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+})
 
 
 app.use(express.json())
@@ -59,7 +60,7 @@ app.use("/api/v1/inngest", serve({
 }))
 
 app.use("/api/v1", router)
-
+ 
 app.use("/health", (_req: Request, res: Response) => {
   res.json({ status: "OK", message: "Server is running" })
 })
@@ -72,4 +73,4 @@ if (ENV.node_env === "production") {
   })
 }
 
-export default app
+export {server, io}
