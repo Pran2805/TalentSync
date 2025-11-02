@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/home/Navbar";
 import Hero from "@/components/home/Hero";
 import Footer from "@/components/Footer";
 import { lazy, Suspense } from "react";

@@ -192,7 +192,7 @@ const joinSession = asyncHandler(async (req: Request, res: Response) => {
   } catch (error) {
     console.error("Error in joinSession Controller:", error);
     if (error instanceof ApiError) {
-      return res.status(error.statusCode as number || 400).json({
+      res.status(error.statusCode as number || 400).json({
         success: false,
         message: error.message,
       });

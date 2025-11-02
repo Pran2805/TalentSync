@@ -1,6 +1,6 @@
 import { Brain, Zap } from "lucide-react"
 import { SignInButton } from "@clerk/clerk-react"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 
 function Navbar() {
   return (
