@@ -73,4 +73,9 @@ if (ENV.node_env === "production") {
   })
 }
 
+
+
+io.on("connection", (socket)=>{
+  console.log(`Socket Connecetd!, ${socket.id}`)
+})
 export {server, io}

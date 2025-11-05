@@ -5,6 +5,8 @@ import { useUser } from "@clerk/clerk-react";
 import { Toaster } from "sonner"
 import { ThemeProvider } from "@/components/theme-provider"
 import Dashboard from "./pages/Dashboard";
+import ProblemDetail from "./pages/ProblemDetail";
+import VideoCall from "./pages/VideoCall";
 function App() {
   const { isSignedIn, isLoaded } = useUser()
 
@@ -14,8 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={isSignedIn ? <Navigate to="/dashboard" />:<HomePage />} />
         <Route path="/problems" element={isSignedIn ? <ProblemPage /> : <Navigate to="/" />} />
+        <Route path="/problem/:id" element={isSignedIn ? <ProblemDetail /> : <Navigate to="/" />} />
+        <Route path="/video-call/:id" element={isSignedIn ? <VideoCall /> : <Navigate to="/" />} />
         <Route path="/dashboard" element={isSignedIn ? <Dashboard /> : <Navigate to="/" />} />
-        
       </Routes>
       <Toaster duration={4000} position="top-right" />
     </ThemeProvider>

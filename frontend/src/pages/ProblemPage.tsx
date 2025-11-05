@@ -38,7 +38,7 @@ function ProblemPage() {
               <Code className="w-8 h-8 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-4">
             Practice Problems
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -99,7 +99,7 @@ function ProblemPage() {
                 hover:border-primary/30 
                 hover:shadow-2xl 
                 hover:scale-[1.02]
-                bg-gradient-to-r from-background to-background/80
+                bg-linear-to-r from-background to-background/80
                 group-hover:from-background/90 group-hover:to-background/70
                 overflow-hidden
               ">
